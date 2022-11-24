@@ -14,6 +14,7 @@ const Header = () => {
                             <li><Link to="/">Home</Link></li>
                             <li><Link>Catagories</Link></li>
                             <li><Link>About</Link></li>
+                            <li><Link>Blogs</Link></li>
                         </ul>
                     </div>
                     <Link className="btn btn-ghost normal-case text-2xl">Guitar.BD</Link>
@@ -23,6 +24,7 @@ const Header = () => {
                         <li><Link to="/">Home</Link></li>
                         <li><Link>Catagories</Link></li>
                         <li><Link>About</Link></li>
+                        <li><Link>Blogs</Link></li>
                     </ul>
                 </div>
                 <div className="navbar-end">

@@ -1,0 +1,13 @@
+.home-bannner {
+    background: rgba(0, 0, 0, 0.75) url(../../../assets/images/homeImage/Home\ Banner.jpg);
+    background-blend-mode: darken;
+    height: 700px;
+    background-position: top;
+    background-repeat: no-repeat;
+}
+
+@media only screen and (max-width: 770px) {
+    .middle-banner{
+        display: none;
+    }
+}
