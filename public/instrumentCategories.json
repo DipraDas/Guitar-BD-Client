@@ -1,0 +1,14 @@
+[
+    {
+        "typeId": "01",
+        "typeName": "Electric"
+    },
+    {
+        "typeId": "02",
+        "typeName": "Bass"
+    },
+    {
+        "typeId": "03",
+        "typeName": "Acoustic"
+    }
+]

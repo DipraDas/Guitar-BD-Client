@@ -1,0 +1,9 @@
+.category-back-home{
+    background: rgba(34, 19, 0, 0.8) url('../../../assets/images/homeImage/guiterCategories.jpg');
+    background-blend-mode: darken;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
