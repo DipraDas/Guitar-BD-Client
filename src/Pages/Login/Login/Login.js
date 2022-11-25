@@ -2,12 +2,11 @@ import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/authprovider/authprovider';
-import toast from 'react-hot-toast';
 import useToken from '../../../hooks/useToken';
 
 const Login = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const { googleLogin,signIn } = useContext(AuthContext);
+    const { googleLogin, signIn} = useContext(AuthContext);
     const [loginError, setLoginError] = useState('');
     const navigate = useNavigate();
     const location = useLocation();
@@ -15,11 +14,17 @@ const Login = () => {
     const [LoginUserEmail, setLoginUserEmail] = useState('');
     const [token] = useToken(LoginUserEmail);
 
+    console.log(LoginUserEmail);
+
     if (token) {
-        navigate(from, { replace: true })
+        // navigate(from, { replace: true })
+        navigate('/');
+        console.log(token)
     }
+
     const handleLogin = data => {
         console.log(data);
+        setLoginUserEmail('');
         setLoginError('')
         signIn(data.email, data.password)
             .then(res => {
@@ -27,10 +32,14 @@ const Login = () => {
                 console.log(user);
                 setLoginUserEmail(data.email);
             })
-            .catch(error => { console.log(error) })
+            .catch(error => {
+                console.log(error);
+                setLoginError(error.message);
+            })
     }
 
     const handleGoogleSignIn = () => {
+        
         googleLogin()
             .then(result => {
                 const user = result.user;
@@ -43,6 +52,7 @@ const Login = () => {
 
 
     const saveUser = (name, email, role) => {
+        setLoginUserEmail('');
         const user = { name, email, role };
         console.log(user);
         fetch('http://localhost:5000/users', {

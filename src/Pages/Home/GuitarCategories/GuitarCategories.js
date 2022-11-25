@@ -5,7 +5,7 @@ import './GuitarCategories.css';
 const GuitarCategories = () => {
     const [categories, setCategories] = useState([]);
     useEffect(() => {
-        const url = 'instrumentCategories.json'
+        const url = 'http://localhost:5000/instrumentCategories'
         fetch(url)
             .then(res => res.json())
             .then(data => setCategories(data))

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './HomeBanner.css';
 import 'animate.css';
 import guitar from '../../../assets/images/homeImage/home-guitar.png';
@@ -6,6 +6,9 @@ import { FaArrowRight } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 
 const HomeBanner = () => {
+    useEffect(() => {
+        window.scrollTo(0,0)
+        }, [])
     return (
         <div className='home-bannner'>
             <div className="container h-full mx-auto grid grid-cols-1 md:grid-cols-3 items-center">

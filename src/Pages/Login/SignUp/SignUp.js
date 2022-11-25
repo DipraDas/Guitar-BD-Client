@@ -102,7 +102,7 @@ const SignUp = () => {
                                 required: true
                             })}
                         >
-                            <option default value="user">User</option>
+                            <option default value="buyer">Buyer</option>
                             <option value="seller">Seller</option>
                         </select>
                     </div>

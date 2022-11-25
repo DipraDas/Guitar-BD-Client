@@ -1,0 +1,5 @@
+.imageLight:hover img {
+    filter: brightness(100%);
+    transition: .4s;
+    transition-timing-function: linear;
+}
