@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/authprovider/authprovider';
 import toast from 'react-hot-toast';
 import useToken from '../../../hooks/useToken';
+import Swal from 'sweetalert2';
 
 const SignUp = () => {
     const { createUser, updateUser } = useContext(AuthContext);
@@ -55,7 +56,15 @@ const SignUp = () => {
             .then(data => {
                 setCreatedUserEmail(email);
                 console.log(data);
-                toast.success('User Created Successfully');
+                // toast.success('User Created Successfully');
+                Swal.fire({
+                    position: 'center center',
+                    icon: 'success',
+                    title: 'User Created Successfully',
+                    showConfirmButton: false,
+                    timer: 2000
+                })
+
             })
     }
 
