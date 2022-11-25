@@ -1,15 +1,22 @@
 import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/authprovider/authprovider';
 import toast from 'react-hot-toast';
+import useToken from '../../../hooks/useToken';
 
 const SignUp = () => {
-    const { register, handleSubmit, formState: { errors } } = useForm();
-    const [signupError, setSignupError] = useState('');
     const { createUser, updateUser } = useContext(AuthContext);
+    const [signupError, setSignupError] = useState('');
     const navigate = useNavigate();
-    // const [createdUserEmail, setCreatedUserEmail] = useState('');
+    const { register, formState: { errors }, handleSubmit } = useForm();
+
+    const [createdUserEmail, setCreatedUserEmail] = useState('');
+    const [token] = useToken(createdUserEmail);
+
+    if (token) {
+        navigate('/');
+    }
 
     const handleSignUp = data => {
         console.log(data);
@@ -46,9 +53,8 @@ const SignUp = () => {
         })
             .then(res => res.json())
             .then(data => {
-                // setCreatedUserEmail(email);
+                setCreatedUserEmail(email);
                 console.log(data);
-                navigate('/');
                 toast.success('User Created Successfully');
             })
     }
@@ -57,6 +63,7 @@ const SignUp = () => {
         <div className='flex justify-center items-center'>
             <div className='w-96 px-7 border border-purple-300 my-20 py-16'>
                 <div className="text-3xl">Sign Up</div>
+                <div className='text-xs mt-1 mb-3'>Already Registered?<Link className='text-blue-400' to="/login"> Login</Link></div>
                 <form onSubmit={handleSubmit(handleSignUp)}>
                     <div className="form-control w-full max-w-xs">
                         <label className="label">
