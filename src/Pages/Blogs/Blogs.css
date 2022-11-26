@@ -1,0 +1,5 @@
+.hilight:hover h2{
+    color: rgb(209, 209, 209);
+    transition: .5s;
+    transition-timing-function: ease-in-out;
+}
