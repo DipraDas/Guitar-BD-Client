@@ -22,6 +22,7 @@ const CategoryDetails = () => {
             {aboutGuitar &&
                 <BuyingModal
                     aboutGuitar={aboutGuitar}
+                    setAboutGuitar={setAboutGuitar}
                 ></BuyingModal>}
         </div>
     );

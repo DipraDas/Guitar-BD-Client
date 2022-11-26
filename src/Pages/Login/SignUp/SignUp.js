@@ -64,7 +64,6 @@ const SignUp = () => {
                     showConfirmButton: false,
                     timer: 2000
                 })
-
             })
     }
 

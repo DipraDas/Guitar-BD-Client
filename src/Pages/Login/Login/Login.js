@@ -6,7 +6,7 @@ import useToken from '../../../hooks/useToken';
 
 const Login = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const { googleLogin, signIn} = useContext(AuthContext);
+    const { googleLogin, signIn } = useContext(AuthContext);
     const [loginError, setLoginError] = useState('');
     const navigate = useNavigate();
     const location = useLocation();
@@ -17,8 +17,8 @@ const Login = () => {
     console.log(LoginUserEmail);
 
     if (token) {
-        // navigate(from, { replace: true })
-        navigate('/');
+        navigate(from, { replace: true })
+        // navigate('/');
         console.log(token)
     }
 
@@ -39,7 +39,7 @@ const Login = () => {
     }
 
     const handleGoogleSignIn = () => {
-        
+
         googleLogin()
             .then(result => {
                 const user = result.user;
