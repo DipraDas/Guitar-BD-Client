@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
+import BuyingModal from '../BuuyingModal/BuyingModal';
 import GuitarDetails from '../GuitarDetails/GuitarDetails';
 
 const CategoryDetails = () => {
     const guitars = useLoaderData();
+    const [aboutGuitar, setAboutGuitar] = useState(null);
     return (
         <div>
             <h1 className='text-center pt-10 pb-3 text-5xl'>Products for sell</h1>
@@ -13,9 +15,14 @@ const CategoryDetails = () => {
                     guitars.map(guitar => <GuitarDetails
                         key={guitar._id}
                         guitar={guitar}
+                        setAboutGuitar={setAboutGuitar}
                     ></GuitarDetails>)
                 }
             </div>
+            {aboutGuitar &&
+                <BuyingModal
+                    aboutGuitar={aboutGuitar}
+                ></BuyingModal>}
         </div>
     );
 };

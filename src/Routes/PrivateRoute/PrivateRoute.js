@@ -8,7 +8,7 @@ const PrivateRoute = ({ children }) => {
     const location = useLocation();
 
     if (loading) {
-        return <button className="btn btn-square loading m-auto"></button>
+        return
     }
 
     if (user) {
@@ -18,3 +18,6 @@ const PrivateRoute = ({ children }) => {
 };
 
 export default PrivateRoute;
+
+
+<button className="btn btn-square loading m-auto"></button>
