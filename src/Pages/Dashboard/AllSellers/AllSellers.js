@@ -2,11 +2,12 @@ import { useQuery } from '@tanstack/react-query';
 import React, { useState } from 'react';
 import Swal from 'sweetalert2';
 import ConfirmationModal from '../../Shared/ConfirmationModal/ConfirmationModal';
+import check from '../../../assets/images/dashboardImage/check3.png';
 
 const AllSellers = () => {
-    const [deletingBuyer, setDeletingBuyer] = useState(null)
-    const { data: buyers = [], refetch } = useQuery({
-        queryKey: ['buyers'],
+    const [deletingSeller, setDeletingSeller] = useState(null)
+    const { data: sellers = [], refetch } = useQuery({
+        queryKey: ['sellers'],
         queryFn: async () => {
             const res = await fetch('http://localhost:5000/users/sellers', {
                 headers: {
@@ -17,12 +18,40 @@ const AllSellers = () => {
             return data;
         }
     });
+    const handleVarifySeller = seller => {
+        fetch(`http://localhost:5000/users/sellers`, {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json',
+                authorization: `bearer ${localStorage.getItem('accessToken')}`
+            },
+            body: JSON.stringify(seller)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.modifiedCount > 0) {
+                    refetch();
+                    Swal.fire({
+                        position: 'center-center',
+                        icon: 'success',
+                        title: 'Varified',
+                        showConfirmButton: false,
+                        timer: 2000
+                    })
+                    refetch()
+                }
+            })
+    }
+
+
 
     const closeModal = () => {
-        setDeletingBuyer(null);
+        setDeletingSeller(null);
     }
-    const handleDetetingBuyer = user => {
-        fetch(`http://localhost:5000/users/sellers/${user._id}`, {
+    const handleDetetingSeller = seller => {
+        console.log(seller);
+        fetch(`http://localhost:5000/users/sellers/${seller._id}`, {
             method: 'DELETE',
             headers: {
                 authorization: `bearer ${localStorage.getItem('accessToken')}`
@@ -35,7 +64,7 @@ const AllSellers = () => {
                     Swal.fire({
                         position: 'center-center',
                         icon: 'success',
-                        title: 'Buyer Deleted Successfully',
+                        title: 'Seller Deleted Successfully',
                         showConfirmButton: false,
                         timer: 2000
                     })
@@ -56,23 +85,23 @@ const AllSellers = () => {
                             <th>Name</th>
                             <th>Email</th>
                             <th>Role</th>
-                            <th>Verify</th>
+                            <th>Varify</th>
                             <th>Delete</th>
                         </tr>
                     </thead>
                     <tbody>
                         {
-                            buyers.map((buyer, i) =>
-                                <tr key={buyer._id} className="hover">
+                            sellers.map((seller, i) =>
+                                <tr key={seller._id} className="hover">
                                     <th>{i + 1}</th>
-                                    <td>{buyer.name}</td>
-                                    <td>{buyer.email}</td>
-                                    <td>{buyer.role}</td>
-                                    <td>
-                                        <label onClick={() => setDeletingBuyer(buyer)} htmlFor="confirmation-modal" className="btn btn-xs btn-info text-white">Verfify</label>
+                                    <td>{seller.name}</td>
+                                    <td>{seller.email}</td>
+                                    <td>{seller.role}</td>
+                                    <td>{!seller.verified && <button onClick={() => handleVarifySeller(seller)} className="btn btn-xs btn-outline btn-info">Verify</button>}
+                                        {seller.verified && <img style={{width:'25px'}} src={check} alt="" /> }
                                     </td>
                                     <td>
-                                        <label onClick={() => setDeletingBuyer(buyer)} htmlFor="confirmation-modal" className="btn btn-xs btn-error text-white">Delete</label>
+                                        <label onClick={() => setDeletingSeller(seller)} htmlFor="confirmation-modal" className="btn btn-xs btn-error text-white">Delete</label>
                                     </td>
                                 </tr>
                             )
@@ -83,11 +112,11 @@ const AllSellers = () => {
                 </table>
             </div>
             {
-                deletingBuyer && <ConfirmationModal
+                deletingSeller && <ConfirmationModal
                     title={'Are you sure you want to delete'}
-                    message={`If you delete ${deletingBuyer.name}. It can not be done`}
-                    successAction={handleDetetingBuyer}
-                    modalData={deletingBuyer}
+                    message={`If you delete ${deletingSeller.name}. It can not be done`}
+                    successAction={handleDetetingSeller}
+                    modalData={deletingSeller}
                     successButtonName={'Delete'}
                     closeModal={closeModal}
                 ></ConfirmationModal>

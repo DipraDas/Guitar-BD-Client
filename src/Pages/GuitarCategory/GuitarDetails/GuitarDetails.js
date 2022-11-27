@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import './GuitarDetails.css';
 
 const GuitarDetails = ({ guitar, setAboutGuitar }) => {
@@ -22,7 +21,10 @@ const GuitarDetails = ({ guitar, setAboutGuitar }) => {
                 <h1 className='text-md text-gray-400 mb-6'>Orginal Price: <del>৳{orginalPrice}</del></h1>
                 <h1 className=''>Used Time: {usedTime}</h1>
                 <h1 className=''>Posted On: {yearsOfPurchase}</h1>
-                <h1 className='mt-4'>Seller Name: {seller}</h1>
+                <div className='flex mt-4'>
+                {guitar.verified && <p className='text-blue-500 text-xl font-bold mr-3'>✔</p>}
+                    <h1 className=''>Seller Name: {seller}</h1>
+                </div>
                 <h1 className=''>Seller's Number: {mobile}</h1>
                 <h1 className=''>Seller's Location: {location}</h1>
                 <label
