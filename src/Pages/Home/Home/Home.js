@@ -1,4 +1,5 @@
 import React from 'react';
+import AdvertiseItem from '../AdvertiseItem/AdvertiseItem';
 import GuitarCategories from '../GuitarCategories/GuitarCategories';
 import HomeBanner from '../HomeBanner/HomeBanner';
 
@@ -8,6 +9,7 @@ const Home = () => {
         <div>
             <HomeBanner></HomeBanner>
             <GuitarCategories></GuitarCategories>
+            <AdvertiseItem></AdvertiseItem>
         </div>
     );
 };

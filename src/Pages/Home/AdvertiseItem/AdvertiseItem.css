@@ -1,0 +1,10 @@
+.advertiseBackground{
+    background: rgba(0, 0, 0, 0.8) url(../../../assets/images/homeImage/advertiseBackground.jpg);
+    background-attachment: fixed;
+    background-blend-mode: darken;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
