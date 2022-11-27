@@ -1,8 +1,8 @@
 import { format } from 'date-fns';
 import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
-import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 import { AuthContext } from '../../../contexts/authprovider/authprovider';
 
 const AddProduct = () => {
@@ -32,6 +32,7 @@ const AddProduct = () => {
                 console.log(imgData);
                 const instrument = {
                     seller: user.displayName,
+                    email: user.email,
                     productName: data.productName,
                     condition: data.condition,
                     mobile: data.mobile,
@@ -57,8 +58,14 @@ const AddProduct = () => {
                     .then(res => res.json())
                     .then(result => {
                         console.log(result);
-                        toast.success(`${data.name} is added successfully`);
                         navigate('/dashboard/myProducts');
+                        Swal.fire({
+                            position: 'center center',
+                            icon: 'success',
+                            title: 'Produce Added Successfully',
+                            showConfirmButton: false,
+                            timer: 2000
+                        })
                     })
             })
     }
@@ -84,9 +91,15 @@ const AddProduct = () => {
                             <label className="label">
                                 <span className="label-text">Product Condition</span>
                             </label>
-                            <input type="text" className="input input-bordered w-full"
-                                {...register("condition")}
-                            />
+                            <select className="select select-bordered w-full"
+                                {...register("condition", {
+                                    required: true
+                                })}
+                            >
+                                <option value="Excellent">Excellent</option>
+                                <option value="Good">Good</option>
+                                <option value="Fair">Fair</option>
+                            </select>
                         </div>
                         <div className="form-control w-full mb-2">
                             <label className="label">
