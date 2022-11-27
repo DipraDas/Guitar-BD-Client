@@ -2,7 +2,6 @@ import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/authprovider/authprovider';
-import toast from 'react-hot-toast';
 import useToken from '../../../hooks/useToken';
 import Swal from 'sweetalert2';
 
