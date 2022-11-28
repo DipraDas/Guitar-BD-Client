@@ -1,15 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import GuitarCategory from '../GuitarCategory/GuitarCategory';
 import './GuitarCategories.css';
+import axios from "axios";
 
 const GuitarCategories = () => {
     const [categories, setCategories] = useState([]);
+
     useEffect(() => {
-        const url = 'http://localhost:5000/instrumentCategories'
-        fetch(url)
-            .then(res => res.json())
-            .then(data => setCategories(data))
-    }, [])
+        axios.get(`http://localhost:5000/instrumentCategories`)
+            .then((response) => {
+                setCategories(response.data);
+            });
+    }, []);
+
     return (
         <div className='container mx-auto category-back-home'>
             <h1 className='text-center pt-10 text-5xl'>Categories</h1>

@@ -30,7 +30,7 @@ const MyOrders = () => {
         <h1 className='text-3xl p-8'>My Orders</h1>
             <div className='grid gap-5 sm:grid-cols-1 md:grid-cols-2 px-5'>
                 {
-                    products.map(product =>
+                    products?.map(product =>
                         <div key={product._id} className="card flex-col lg:flex-row card-side bg-base-100 shadow-xl my-10 border-2 border-gray-500">
                             <figure className='w-full lg:w-2/4'><img src={product.image} alt="Movie" /></figure>
                             <div className="card-body w-full lg:w-2/4">

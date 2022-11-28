@@ -58,12 +58,6 @@ const MyWishlist = () => {
                                         <p className='text-green-500'>Paid</p>
                                     }
                                 </td>
-                                {/* <td>
-                                    {/* {<button onClick={() => handleAdvertise(product._id)} className="btn btn-xs btn-outline btn-primary" disabled={product.advertise}>Advertise</button>}
-                                </td>
-                                <td>
-                                    <label onClick={() => setDeletingProduct(product)} htmlFor="confirmation-modal" className="btn btn-xs btn-error text-white">Delete</label> 
-                                </td> */}
                             </tr>
                         )
                     }

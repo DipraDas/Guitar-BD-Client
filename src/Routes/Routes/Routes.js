@@ -9,7 +9,7 @@ import MyBuyers from "../../Pages/Dashboard/MyBuyers/MyBuyers";
 import MyOrders from "../../Pages/Dashboard/MyOrders/MyOrders";
 import MyProducts from "../../Pages/Dashboard/MyProducts/MyProducts";
 import MyWishlist from "../../Pages/Dashboard/MyWishlist/MyWishlist";
-import ReportedItems from "../../Pages/Dashboard/ReportedItems/ReportedItems";
+import ReportToAdmin from "../../Pages/Dashboard/ReportToAdmin/ReportToAdmin";
 import CategoryDetails from "../../Pages/GuitarCategory/CategoryDetails/CategoryDetails";
 import Home from "../../Pages/Home/Home/Home";
 import Login from "../../Pages/Login/Login/Login";
@@ -68,7 +68,11 @@ const router = createBrowserRouter([
             },
             {
                 path: '/dashboard/reportedItems',
-                element: <AdminRoute><ReportedItems></ReportedItems></AdminRoute>
+                element: <AdminRoute><ReportToAdmin></ReportToAdmin></AdminRoute>
+            },
+            {
+                path: '/dashboard/reportToAdmin',
+                element: <ReportToAdmin></ReportToAdmin>
             },
             {
                 path: '/dashboard/addProduct',
@@ -82,6 +86,7 @@ const router = createBrowserRouter([
                 path: '/dashboard/myBuyers',
                 element: <SellerRoute><MyBuyers></MyBuyers></SellerRoute>
             },
+
             {
                 path: '/dashboard/myWishlist',
                 element: <MyWishlist></MyWishlist>

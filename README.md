@@ -1,70 +1,34 @@
-# Getting Started with Create React App
+# Guitar BD
+    This is basically a second-hand guitar-selling website. Where buyer can see their orders. The seller can add their product and also see their uploaded product. Finally, a admin can see all of the buyers and sellers and also delete them.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Live Link 
 
-## Available Scripts
 
-In the project directory, you can run:
+### Technologies Used Here
 
-### `npm start`
+- Frontend - React | React-Router-Dom | React-Icons | React Tailwind | DaisyUI 
+- Backend - Node | Express | MongoDB | EmailJS
+- Third Party Tools - TanStack | Axiox | SweetAlert2 | EmailJS
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Key Features
+- Authentication System | Dashboard Panel | Payment Gateway(Strip) 
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Features
 
-### `npm test`
+- Home Page- Guitar BD contains an animated banner in the first section. Then a singer's short blog. The third section has a category section for guitar. For accessing this section users must give their credentials. It may be email, password system, or Google login system. In the second last section users can see the advertisement if any seller posts any advertisement. In the footer, there is a subscription form where users can subscribe to Guitar BD and after subscription, they will get a confirmation email.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Category Page - In the category page there are 3 types of guitars, which are: 1. Electric 2. Bass 3. Acoustic. On this page, the user will see some detailed information like Product Model, Resale Price, Orginal Price, Used Time, Year of Purchase, Seller Name, Seller's Number, and Seller's Location. Finally, the user can book the guitar or report on that product. Using Book now button user will send their information to a database which will be confirmed with a popup.
 
-### `npm run build`
+- Role - There are 3 types of users. Which are: 1. Admin 2. User 3. Seller
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- By giving the users a credential Dashboard option added in the navbar which is dynamic. Here, Admin can see 4 options which are 'My Orders', 'All Seller', 'All Buyer', and 'Reported Items'. Secondly, the Buyer will see 'My Orders. Finally, the seller will 2 options which are 'Add a Product' & 'My Product'.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Admin Pannel - An admin can see their ordered product in the 'My Order' option. In the 'All Seller' option admin will see all of the user. Where it will show user's Name, Email and Roll. Here admin can verify the seller by verifying a seller every verified seller will get a blue tick sign beside their name in the guitar showing page. Admin can also delete a seller using delete button which will confirmed with a confirmation popup. The 'All Buyer' option has the same functionality excluding verification option.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Seller Pannel - A seller can also place an order and see the ordered items in 'My Orders' option. From the 'Add Product' option seller can add a product for sell. So, have to submit a from which contains Product Name, Product Condition (Excellent, Good, Fair), Mobile Number, Location, Guitar Type (Electric, Bass, Acoustic), Orginal Price, Selling Price, Year of Purchase (2000 - 2022), Image & Description. In 'My Product' option seller will see their uploaded product with Product Name, Price, Condition & Status. Their has 'Advertise' button, by clicking this, that product will show in the home page. Seller can delete their uploaded product by clicking 'Delete'.
 
-### `npm run eject`
+- Buyer Pannel - Buyer can only see the orders that are placed by them
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- Blogs - In blog page their are 4 basic questions with answers. Here are the questions: 1. What are the different ways to manage a state in React application? 2. How does prototypical inheritance work? 3. What is unit test? Why should we write unit test? 4. React vs Angular vs Vue
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Authentication System - Email, Password Login and Google Login System are implemented using Firebase.
