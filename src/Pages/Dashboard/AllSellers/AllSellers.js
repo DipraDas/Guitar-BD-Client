@@ -35,7 +35,7 @@ const AllSellers = () => {
                     Swal.fire({
                         position: 'center-center',
                         icon: 'success',
-                        title: 'Varified',
+                        title: 'Verified',
                         showConfirmButton: false,
                         timer: 2000
                     })

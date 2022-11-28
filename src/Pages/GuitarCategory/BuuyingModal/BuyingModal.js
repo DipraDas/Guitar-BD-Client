@@ -41,9 +41,9 @@ const BuyingModal = ({ aboutGuitar, setAboutGuitar }) => {
                     Swal.fire({
                         position: 'center center',
                         icon: 'success',
-                        title: productName,
+                        title: 'Booking Confirmed',
                         showConfirmButton: false,
-                        timer: 2500
+                        timer: 2200
                     })
                     // refetch();
                 }

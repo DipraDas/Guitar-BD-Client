@@ -25,7 +25,10 @@ const DashboardLayout = () => {
                     <label htmlFor="dashboard-drawer" className="drawer-overlay"></label>
                     <ul className="menu p-4 w-80 text-base-content">
                         {token &&
-                            <li><Link to='/dashboard'>My Orders</Link></li>
+                            <>
+                                <li><Link to='/dashboard'>My Orders</Link></li>
+                                <li><Link to='/dashboard/myWishlist'>My Wishlist</Link></li>
+                            </>
                         }
                         {
                             isAdmin && <>
