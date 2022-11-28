@@ -9,7 +9,7 @@ const AllSellers = () => {
     const { data: sellers = [], refetch } = useQuery({
         queryKey: ['sellers'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/users/sellers', {
+            const res = await fetch('https://guitar-bd-server.vercel.app/users/sellers', {
                 headers: {
                     authorization: `bearer ${localStorage.getItem('accessToken')}`
                 }
@@ -19,7 +19,7 @@ const AllSellers = () => {
         }
     });
     const handleVarifySeller = seller => {
-        fetch(`http://localhost:5000/users/sellers`, {
+        fetch(`https://guitar-bd-server.vercel.app/users/sellers`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -51,7 +51,7 @@ const AllSellers = () => {
     }
     const handleDetetingSeller = seller => {
         console.log(seller);
-        fetch(`http://localhost:5000/users/sellers/${seller._id}`, {
+        fetch(`https://guitar-bd-server.vercel.app/users/sellers/${seller._id}`, {
             method: 'DELETE',
             headers: {
                 authorization: `bearer ${localStorage.getItem('accessToken')}`
@@ -98,7 +98,7 @@ const AllSellers = () => {
                                     <td>{seller.email}</td>
                                     <td>{seller.role}</td>
                                     <td>{!seller.verified && <button onClick={() => handleVarifySeller(seller)} className="btn btn-xs btn-outline btn-info">Verify</button>}
-                                        {seller.verified && <img style={{width:'25px'}} src={check} alt="" /> }
+                                        {seller.verified && <img style={{ width: '25px' }} src={check} alt="" />}
                                     </td>
                                     <td>
                                         <label onClick={() => setDeletingSeller(seller)} htmlFor="confirmation-modal" className="btn btn-xs btn-error text-white">Delete</label>

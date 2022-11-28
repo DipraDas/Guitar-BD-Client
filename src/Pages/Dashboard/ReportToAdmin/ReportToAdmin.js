@@ -11,7 +11,7 @@ const ReportedItems = () => {
         setDeletingProduct(null);
     }
     const handleDetetingProduct = product => {
-        fetch(`http://localhost:5000/reportedproduct/${product._id}`, {
+        fetch(`https://guitar-bd-server.vercel.app/reportedproduct/${product._id}`, {
             method: 'DELETE',
             headers: {
                 authorization: `bearer ${localStorage.getItem('accessToken')}`
@@ -33,7 +33,7 @@ const ReportedItems = () => {
     }
 
 
-    const url = `http://localhost:5000/showReports`;
+    const url = `https://guitar-bd-server.vercel.app/showReports`;
 
     const { data: products = [], isLoading, refetch } = useQuery({
         queryKey: ['products'],

@@ -15,7 +15,7 @@ const GuitarDetails = ({ guitar, setAboutGuitar }) => {
     const { user } = useContext(AuthContext);
     const { _id, productName, image, resaleSale, seller, mobile, location, posted, paid, status, orginalPrice, usedTime, yearsOfPurchase } = guitar;
 
-    const url = `http://localhost:5000/myproducts?email=${user?.email}`;
+    const url = `https://guitar-bd-server.vercel.app/myproducts?email=${user?.email}`;
     const { data: products = [], isLoading, refetch } = useQuery({
         queryKey: ['products', user?.email],
         queryFn: async () => {
@@ -31,7 +31,7 @@ const GuitarDetails = ({ guitar, setAboutGuitar }) => {
 
 
     const handleReport = id => {
-        fetch(`http://localhost:5000/productReport/${id}`, {
+        fetch(`https://guitar-bd-server.vercel.app/productReport/${id}`, {
             method: 'PUT',
             headers: {
                 authorization: `bearer ${localStorage.getItem('accessToken')}`

@@ -45,7 +45,7 @@ const router = createBrowserRouter([
             {
                 path: '/categories/:id',
                 element: <PrivateRoute><CategoryDetails></CategoryDetails></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/categories/${params.id}`)
+                loader: ({ params }) => fetch(`https://guitar-bd-server.vercel.app/categories/${params.id}`)
             }
         ]
     },
@@ -94,7 +94,7 @@ const router = createBrowserRouter([
             // {
             //     path: '/dashboard/payment/:id',
             //     element: <MakePayment></MakePayment>,
-            //     loader: ({ params }) => fetch(`http://localhost:5000/bookings/${params.id}`)
+            //     loader: ({ params }) => fetch(`https://guitar-bd-server.vercel.app/bookings/${params.id}`)
             // },
         ]
     }

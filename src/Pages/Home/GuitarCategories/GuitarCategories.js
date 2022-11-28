@@ -7,7 +7,7 @@ const GuitarCategories = () => {
     const [categories, setCategories] = useState([]);
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/instrumentCategories`)
+        axios.get(`https://guitar-bd-server.vercel.app/instrumentCategories`)
             .then((response) => {
                 setCategories(response.data);
             });

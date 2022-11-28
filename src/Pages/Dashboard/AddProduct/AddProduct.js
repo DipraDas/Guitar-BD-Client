@@ -47,7 +47,7 @@ const AddProduct = () => {
                     posted: today
 
                 }
-                fetch('http://localhost:5000/instrument', {
+                fetch('https://guitar-bd-server.vercel.app/instrument', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json',

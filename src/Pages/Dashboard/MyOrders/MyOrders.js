@@ -6,7 +6,7 @@ import Loading from '../../Shared/Loading/Loading';
 
 const MyOrders = () => {
     const { user } = useContext(AuthContext);
-    const url = `http://localhost:5000/myorders?email=${user?.email}`;
+    const url = `https://guitar-bd-server.vercel.app/myorders?email=${user?.email}`;
 
     const { data: products = [], isLoading } = useQuery({
         queryKey: ['products', user?.email],
@@ -27,7 +27,7 @@ const MyOrders = () => {
 
     return (
         <>
-        <h1 className='text-3xl p-8'>My Orders</h1>
+            <h1 className='text-3xl p-8'>My Orders</h1>
             <div className='grid gap-5 sm:grid-cols-1 md:grid-cols-2 px-5'>
                 {
                     products?.map(product =>

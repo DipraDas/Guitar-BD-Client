@@ -13,7 +13,7 @@ const MyProducts = () => {
     }
     const handleDetetingProduct = product => {
         console.log(product);
-        fetch(`http://localhost:5000/product/${product._id}`, {
+        fetch(`https://guitar-bd-server.vercel.app/product/${product._id}`, {
             method: 'DELETE',
             headers: {
                 authorization: `bearer ${localStorage.getItem('accessToken')}`
@@ -35,7 +35,7 @@ const MyProducts = () => {
     }
 
     const handleAdvertise = id => {
-        fetch(`http://localhost:5000/product/${id}`, {
+        fetch(`https://guitar-bd-server.vercel.app/product/${id}`, {
             method: 'PUT',
             headers: {
                 authorization: `bearer ${localStorage.getItem('accessToken')}`
@@ -58,7 +58,7 @@ const MyProducts = () => {
 
 
 
-    const url = `http://localhost:5000/myproducts?email=${user?.email}`;
+    const url = `https://guitar-bd-server.vercel.app/myproducts?email=${user?.email}`;
 
     const { data: products = [], isLoading, refetch } = useQuery({
         queryKey: ['products', user?.email],

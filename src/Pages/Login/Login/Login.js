@@ -60,7 +60,7 @@ const Login = () => {
         setLoginUserEmail('');
         const user = { name, email, role };
         console.log(user);
-        fetch('http://localhost:5000/users', {
+        fetch('https://guitar-bd-server.vercel.app/users', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

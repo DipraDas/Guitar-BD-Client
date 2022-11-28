@@ -5,7 +5,7 @@ import './AdvertiseItem.css'
 const AdvertiseItem = () => {
     const [products, setProducts] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/advertiseproducts')
+        fetch('https://guitar-bd-server.vercel.app/advertiseproducts')
             .then(res => res.json())
             .then(data => setProducts(data))
     }, [])

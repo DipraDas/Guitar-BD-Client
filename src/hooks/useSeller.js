@@ -5,7 +5,7 @@ const useSeller = email => {
     const [isSellerLoading, setIsSellerLoadnig] = useState(true);
     useEffect(() => {
         if (email) {
-            fetch(`http://localhost:5000/users/Seller/${email}`)
+            fetch(`https://guitar-bd-server.vercel.app/users/Seller/${email}`)
                 .then(res => res.json())
                 .then(data => {
                     setIsSeller(data.isSeller);
