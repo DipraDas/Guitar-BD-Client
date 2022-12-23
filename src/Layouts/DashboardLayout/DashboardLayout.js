@@ -27,7 +27,7 @@ const DashboardLayout = () => {
                         {token &&
                             <>
                                 <li><Link to='/dashboard'>My Orders</Link></li>
-                                <li><Link to='/dashboard/myWishlist'>My Wishlist</Link></li>
+                                {/* <li><Link to='/dashboard/myWishlist'>My Wishlist</Link></li> */}
                             </>
                         }
                         {
@@ -41,7 +41,7 @@ const DashboardLayout = () => {
                             isSeller && <>
                                 <li><Link to='/dashboard/addProduct'>Add Product</Link></li>
                                 <li><Link to='/dashboard/myProducts'>My Products</Link></li>
-                                <li><Link to='/dashboard/myBuyers'>My Buyers</Link></li>
+                                {/* <li><Link to='/dashboard/myBuyers'>My Buyers</Link></li> */}
                             </>
                         }
                     </ul>
